@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,500;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #F7F7F7; font-family: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    * { box-sizing: border-box; }
+    ::selection { background: rgba(27,115,232,0.18); }
+  </style>
+</helmet>
+
+<div style="color: #000000; font-family: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif; min-height: 100vh; display: flex; flex-direction: column;">
+
+  <!-- ===== Top bar ===== -->
+  <header data-screen-label="Top bar" style="position: sticky; top: 0; z-index: 50; background: #F7F7F7; border-bottom: 1px solid #ECECEC;">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 0 32px; height: 58px; display: flex; align-items: center; justify-content: space-between;">
+      <a href="index.html" style="display: flex; align-items: center; gap: 11px; text-decoration: none; color: #000000;">
+        <img src="assets/sefro-icon-mono.png" alt="SEFRO" style="width: 26px; height: 26px; object-fit: contain;">
+        <span style="font-weight: 700; font-size: 15px; letter-spacing: 0.22em;">SEFRO</span>
+      </a>
+      <nav style="display: flex; align-items: center; gap: 28px;">
+        <a href="index.html#features" style="font-size: 14px; font-weight: 500; color: rgba(0,0,0,0.7); text-decoration: none;" style-hover="color: #000000;">Features</a>
+        <a href="about.html" style="font-size: 14px; font-weight: 500; color: rgba(0,0,0,0.7); text-decoration: none;" style-hover="color: #000000;">About</a>
+        <a href="index.html#download" style="font-size: 13.5px; font-weight: 600; color: #F7F7F7; background: #000000; text-decoration: none; padding: 7px 16px; border-radius: 999px;" style-hover="background: #222222;">Download</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Policy ===== -->
+  <section data-screen-label="Privacy policy" style="padding: 96px 32px 88px; flex: 1;">
+    <div style="max-width: 680px; margin: 0 auto; display: flex; flex-direction: column;">
+      <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.22em; padding-left: 0.22em; text-transform: uppercase; color: rgba(0,0,0,0.38);">Legal</div>
+      <h1 style="margin: 18px 0 0; font-size: clamp(34px, 5vw, 48px); line-height: 1.08; letter-spacing: -0.03em; font-weight: 800;">Privacy policy</h1>
+      <div style="margin-top: 14px; font-size: 13.5px; font-weight: 600; color: rgba(0,0,0,0.45);">Effective date: LAUNCH_DATE_TBD</div>
+
+      <p style="margin: 36px 0 0; font-size: 16px; line-height: 1.68; color: rgba(0,0,0,0.68); font-weight: 500; text-wrap: pretty;">SEFRO is a notes and journaling app for your computer. The short version: <strong style="font-weight: 700; color: #000000;">your notes live on your device, and we can’t read them.</strong> This page explains, in plain language, the small amount of data the app does handle and why.</p>
+
+      <h2 style="margin: 44px 0 0; font-size: 21px; font-weight: 700; letter-spacing: -0.015em;">Your notes stay on your device</h2>
+      <p style="margin: 12px 0 0; font-size: 15.5px; line-height: 1.68; color: rgba(0,0,0,0.65); font-weight: 500; text-wrap: pretty;">Everything you write in SEFRO — journal entries, notes, folders, images, drawings — is stored locally on your computer. Your notes are never uploaded to us or anyone else. There is no server that holds a copy. If you use the built-in backup/export, the backup file goes wherever you choose to save it, and only there.</p>
+
+      <h2 style="margin: 44px 0 0; font-size: 21px; font-weight: 700; letter-spacing: -0.015em;">What we do collect, and when</h2>
+      <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 22px;">
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <h3 style="margin: 0; font-size: 16px; font-weight: 700;">1. Your account (optional)</h3>
+          <p style="margin: 0; font-size: 15.5px; line-height: 1.68; color: rgba(0,0,0,0.65); font-weight: 500; text-wrap: pretty;">You can use SEFRO without signing in. If you do sign in, we store the email address you sign in with, so you can be recognized across devices. Sign-in uses a one-time code sent to your email — there is no password to store or leak.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <h3 style="margin: 0; font-size: 16px; font-weight: 700;">2. A few details about you (optional)</h3>
+          <p style="margin: 0; font-size: 15.5px; line-height: 1.68; color: rgba(0,0,0,0.65); font-weight: 500; text-wrap: pretty;">After first sign-in, SEFRO may ask for your name, age, and profession, and whether we may email you occasionally about the app. Every field is optional — you can skip them, or fill in only some. If you provide them, they’re stored alongside your account, and we use them to understand who our users are and — only if you opt in — to send you the occasional product update.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <h3 style="margin: 0; font-size: 16px; font-weight: 700;">3. Feedback you send (only when you press Send)</h3>
+          <p style="margin: 0; font-size: 15.5px; line-height: 1.68; color: rgba(0,0,0,0.65); font-weight: 500; text-wrap: pretty;">If you use “Send feedback,” we receive the message you typed, the kind of feedback it is (bug, idea, or question), and a little context so we can act on it: the app version, your platform (Mac or Windows), and which screen you were on. If you’re signed in, your account email and name come along so we can reply; if you’re signed out, you can optionally leave a contact email. Nothing is sent unless you press the button, and we never attach your notes.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <h3 style="margin: 0; font-size: 16px; font-weight: 700;">4. Crash reports (opt-in only)</h3>
+          <p style="margin: 0; font-size: 15.5px; line-height: 1.68; color: rgba(0,0,0,0.65); font-weight: 500; text-wrap: pretty;">The app asks once whether it may send an automatic report if it crashes. If you say no, nothing is ever sent. If you say yes, a crash report includes technical details of the error and the app version, and — if you’re signed in — your account email so we can follow up. Crash reports never include your notes, anything you typed, or a recording of your screen; those are switched off at the code level.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <h3 style="margin: 0; font-size: 16px; font-weight: 700;">5. Update checks</h3>
+          <p style="margin: 0; font-size: 15.5px; line-height: 1.68; color: rgba(0,0,0,0.65); font-weight: 500; text-wrap: pretty;">The app periodically checks GitHub for a newer version. Like any web request, this reveals your IP address to GitHub (which hosts our downloads). No personal data is sent with it.</p>
+        </div>
+      </div>
+      <p style="margin: 24px 0 0; font-size: 15.5px; line-height: 1.68; color: rgba(0,0,0,0.65); font-weight: 500; text-wrap: pretty;">That’s the complete list. SEFRO has no ads, no third-party trackers, and we never sell or rent your data or share it for anyone else’s marketing.</p>
+
+      <h2 style="margin: 44px 0 0; font-size: 21px; font-weight: 700; letter-spacing: -0.015em;">Where this data lives</h2>
+      <ul style="margin: 14px 0 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px;">
+        <li style="font-size: 15.5px; line-height: 1.6; color: rgba(0,0,0,0.65); font-weight: 500;">Account, your optional details, and feedback are stored with <strong style="font-weight: 700; color: #000000;">Supabase</strong> (our database provider).</li>
+        <li style="font-size: 15.5px; line-height: 1.6; color: rgba(0,0,0,0.65); font-weight: 500;">Crash reports go to <strong style="font-weight: 700; color: #000000;">Sentry</strong> (a crash-reporting service).</li>
+        <li style="font-size: 15.5px; line-height: 1.6; color: rgba(0,0,0,0.65); font-weight: 500;">Downloads and updates are served by <strong style="font-weight: 700; color: #000000;">GitHub</strong>.</li>
+      </ul>
+      <p style="margin: 14px 0 0; font-size: 15.5px; line-height: 1.68; color: rgba(0,0,0,0.65); font-weight: 500; text-wrap: pretty;">Each provider processes the data only to run its part of the service. They may store it on servers outside your country (for example, in the United States).</p>
+
+      <h2 style="margin: 44px 0 0; font-size: 21px; font-weight: 700; letter-spacing: -0.015em;">Your choices and rights</h2>
+      <ul style="margin: 14px 0 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px;">
+        <li style="font-size: 15.5px; line-height: 1.6; color: rgba(0,0,0,0.65); font-weight: 500;"><strong style="font-weight: 700; color: #000000;">See or correct your details</strong> — open Settings → Account in the app.</li>
+        <li style="font-size: 15.5px; line-height: 1.6; color: rgba(0,0,0,0.65); font-weight: 500;"><strong style="font-weight: 700; color: #000000;">Export everything</strong> — use the built-in backup/export to get a full copy of your notes at any time.</li>
+        <li style="font-size: 15.5px; line-height: 1.6; color: rgba(0,0,0,0.65); font-weight: 500;"><strong style="font-weight: 700; color: #000000;">Delete your account</strong> — from Settings → Account → Delete account; this removes your account and the details attached to it.</li>
+        <li style="font-size: 15.5px; line-height: 1.6; color: rgba(0,0,0,0.65); font-weight: 500;"><strong style="font-weight: 700; color: #000000;">Stop the emails</strong> — turn off product emails in Settings, or use the unsubscribe link in any email we send.</li>
+        <li style="font-size: 15.5px; line-height: 1.6; color: rgba(0,0,0,0.65); font-weight: 500;"><strong style="font-weight: 700; color: #000000;">Remove past feedback or crash reports</strong> — email us and we’ll delete them.</li>
+      </ul>
+      <p style="margin: 14px 0 0; font-size: 15.5px; line-height: 1.68; color: rgba(0,0,0,0.65); font-weight: 500; text-wrap: pretty;">Depending on where you live, you may have additional legal rights over your data — such as to access it, correct it, or have it erased. We honour those requests; just contact us.</p>
+
+      <h2 style="margin: 44px 0 0; font-size: 21px; font-weight: 700; letter-spacing: -0.015em;">Children</h2>
+      <p style="margin: 12px 0 0; font-size: 15.5px; line-height: 1.68; color: rgba(0,0,0,0.65); font-weight: 500; text-wrap: pretty;">SEFRO isn’t directed at children, and we don’t knowingly collect information from anyone under 16. If you believe a child has provided us information, contact us and we’ll remove it.</p>
+
+      <h2 style="margin: 44px 0 0; font-size: 21px; font-weight: 700; letter-spacing: -0.015em;">Contact</h2>
+      <p style="margin: 12px 0 0; font-size: 15.5px; line-height: 1.68; color: rgba(0,0,0,0.65); font-weight: 500; text-wrap: pretty;">The person responsible for your data under this policy is Hussein Abi Nassif. Questions or requests: <a href="mailto:h.abinassif@gmail.com" style="color: #1B73E8; font-weight: 600; text-decoration: none;" style-hover="text-decoration: underline;">h.abinassif@gmail.com</a></p>
+
+      <h2 style="margin: 44px 0 0; font-size: 21px; font-weight: 700; letter-spacing: -0.015em;">Changes</h2>
+      <p style="margin: 12px 0 0; font-size: 15.5px; line-height: 1.68; color: rgba(0,0,0,0.65); font-weight: 500; text-wrap: pretty;">If this policy changes, the updated version will be posted at this address with a new effective date.</p>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer data-screen-label="Footer" style="padding: 44px 32px 56px;">
+    <div style="max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+      <span style="font-size: 13px; font-weight: 500; color: rgba(0,0,0,0.45);">© 2026 SEFRO</span>
+      <div style="display: flex; align-items: center; gap: 24px;">
+        <a href="privacy.html" style="font-size: 13px; font-weight: 500; color: #000000; text-decoration: none;">Privacy policy</a>
+        <a href="terms.html" style="font-size: 13px; font-weight: 500; color: rgba(0,0,0,0.55); text-decoration: none;" style-hover="color: #000000;">Terms of use</a>
+        <a href="contact.html" style="font-size: 13px; font-weight: 500; color: rgba(0,0,0,0.55); text-decoration: none;" style-hover="color: #000000;">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>

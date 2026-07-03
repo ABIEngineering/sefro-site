@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,500;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #F7F7F7; font-family: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    * { box-sizing: border-box; }
+    ::selection { background: rgba(27,115,232,0.18); }
+  </style>
+</helmet>
+
+<div id="top" style="color: #000000; font-family: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif; min-height: 100vh;">
+
+  <!-- Scroll-lit spreadsheet grid -->
+  <sc-if value="{{ showGrid }}" hint-placeholder-val="{{ true }}">
+    <div ref="{{ gridGreyRef }}" style="position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0; background-image: linear-gradient(to right, rgba(0,0,0,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.06) 1px, transparent 1px); background-size: 96px 32px; -webkit-mask-image: linear-gradient(to bottom, transparent 0px, #000000 160px); mask-image: linear-gradient(to bottom, transparent 0px, #000000 160px);"></div>
+    <div ref="{{ gridBlueRef }}" style="position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0; background-image: linear-gradient(to right, rgba(27,115,232,0.13) 1px, transparent 1px), linear-gradient(to bottom, rgba(27,115,232,0.13) 1px, transparent 1px); background-size: 96px 32px; -webkit-mask-image: linear-gradient(to bottom, transparent 0px, #000000 160px); mask-image: linear-gradient(to bottom, transparent 0px, #000000 160px);"></div>
+  </sc-if>
+
+  <!-- ===== Top bar ===== -->
+  <header data-screen-label="Top bar" style="position: sticky; top: 0; z-index: 50; background: #F7F7F7; border-bottom: 1px solid #ECECEC;">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 0 32px; height: 58px; display: flex; align-items: center; justify-content: space-between;">
+      <a href="#top" style="display: flex; align-items: center; gap: 11px; text-decoration: none; color: #000000;">
+        <img src="assets/sefro-icon-mono.png" alt="SEFRO" style="width: 26px; height: 26px; object-fit: contain;">
+        <span style="font-weight: 700; font-size: 15px; letter-spacing: 0.22em;">SEFRO</span>
+      </a>
+      <nav style="display: flex; align-items: center; gap: 28px;">
+        <a href="#features" style="font-size: 14px; font-weight: 500; color: rgba(0,0,0,0.7); text-decoration: none;" style-hover="color: #000000;">Features</a>
+        <a href="about.html" style="font-size: 14px; font-weight: 500; color: rgba(0,0,0,0.7); text-decoration: none;" style-hover="color: #000000;">About</a>
+        <sc-if value="{{ navText }}" hint-placeholder-val="{{ true }}">
+          <a href="#download" style="font-size: 14px; font-weight: 600; color: #000000; text-decoration: none;" style-hover="color: #1B73E8;">Download</a>
+        </sc-if>
+        <sc-if value="{{ navPill }}" hint-placeholder-val="{{ false }}">
+          <a href="#download" style="font-size: 13.5px; font-weight: 600; color: #F7F7F7; background: #000000; text-decoration: none; padding: 7px 16px; border-radius: 999px;" style-hover="background: #222222;">Download</a>
+        </sc-if>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section data-screen-label="Hero" style="padding: 88px 32px 60px;">
+    <div style="max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 0; text-align: center;">
+      <img src="assets/sefro-icon-mono.png" alt="SEFRO app icon" style="width: {{ logoSize }}px; height: auto; filter: drop-shadow(0 18px 32px rgba(0,0,0,0.22));">
+      <h1 style="margin: 34px 0 0; font-size: clamp(52px, 8vw, 92px); line-height: 1; font-weight: 600; letter-spacing: 0.24em; padding-left: 0.24em; text-transform: uppercase;">SEFRO</h1>
+      <div style="margin-top: 18px; font-size: 14.5px; font-weight: 600; letter-spacing: 0.3em; padding-left: 0.3em; text-transform: uppercase; color: rgba(0,0,0,0.45);">Think in cells. Solve in galaxies.</div>
+      <p style="margin: 30px 0 0; max-width: 580px; font-size: 19px; line-height: 1.55; color: rgba(0,0,0,0.62); font-weight: 500; text-wrap: pretty;">A calm, keyboard-first scratch pad that looks like paper and counts like a spreadsheet. Every solution starts in a cell. For all the Excel and Sheets lovers — same reflexes, prettier paper.</p>
+      <div style="margin-top: 44px; display: flex; flex-direction: column; align-items: center; gap: 12px;">
+        <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.22em; padding-left: 0.22em; text-transform: uppercase; color: rgba(0,0,0,0.38);">The maker's wish</div>
+        <div style="display: flex; align-items: flex-start; gap: 10px;">
+          <span style="font-family: 'Newsreader', Georgia, serif; font-size: 40px; line-height: 0.7; color: rgba(0,0,0,0.22);">“</span>
+          <span style="font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 500; font-size: 30px; line-height: 1.15; letter-spacing: -0.005em; color: #000000;">Go spread the sheet.</span>
+          <span style="font-family: 'Newsreader', Georgia, serif; font-size: 40px; line-height: 0.7; color: rgba(0,0,0,0.22); align-self: flex-end;">”</span>
+        </div>
+      </div>
+      <div id="download" style="display: flex; flex-direction: column; align-items: center; gap: 14px; padding-top: 40px;">
+        <a href="#" style="display: inline-flex; align-items: center; white-space: nowrap; background: #000000; color: #FFFFFF; text-decoration: none; font-size: 16px; font-weight: 600; letter-spacing: -0.01em; padding: 17px 36px; border-radius: 999px; box-shadow: 0 1px 2px rgba(0,0,0,0.2), 0 10px 24px rgba(0,0,0,0.16); transition: transform 0.15s ease, background 0.15s ease;" style-hover="background: #222222; transform: translateY(-1px);">Download for Mac</a>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+          <span style="font-size: 13px; font-weight: 500; color: rgba(0,0,0,0.5);">Free · macOS 12+ · Apple silicon &amp; Intel</span>
+          <sc-if value="{{ showWindowsSoon }}" hint-placeholder-val="{{ true }}">
+            <span style="font-size: 12.5px; font-weight: 500; color: rgba(0,0,0,0.35);">Windows coming soon.</span>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== App mockup ===== -->
+  <section data-screen-label="App mockup" style="padding: 24px 32px 104px;">
+    <div style="max-width: 1040px; margin: 0 auto; display: flex; flex-direction: column; gap: 64px;">
+      <div style="display: flex; flex-direction: column; gap: 18px;">
+        <div style="text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 0.22em; padding-left: 0.22em; text-transform: uppercase; color: rgba(0,0,0,0.38);">Looks like paper</div>
+        <img src="uploads/pasted-1783063001082-0.png" alt="SEFRO — a real daily note, Friday July 3, 2026" style="display: block; width: 100%; height: auto;" data-comment-anchor="0c25718b:46">
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 18px;">
+        <div style="text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 0.22em; padding-left: 0.22em; text-transform: uppercase; color: rgba(0,0,0,0.38);">Counts like a spreadsheet — grid on</div>
+        <img src="uploads/pasted-1783063244971-0.png" alt="The same daily note with the cell grid visible" style="display: block; width: 100%; height: auto;">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Features ===== -->
+  <section id="features" data-screen-label="Features" style="padding: 0 32px 104px;">
+    <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;">
+      <h2 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em;">A scratch pad with a spreadsheet’s <span style="color: #1B73E8;">brain</span>.</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px;">
+
+        <div style="background: #FFFFFF; border: 1px solid #ECECEC; border-radius: 4px; padding: 28px; box-shadow: 0 1px 2px rgba(0,0,0,0.03), 0 6px 16px rgba(0,0,0,0.05); display: flex; flex-direction: column; gap: 8px;">
+          <h3 style="margin: 0; font-size: 17px; font-weight: 700; letter-spacing: -0.01em;">One page per day</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.55; color: rgba(0,0,0,0.6); text-wrap: pretty;">Open SEFRO and today is already there. Yesterday is one keystroke back.</p>
+        </div>
+
+        <div style="background: #FFFFFF; border: 1px solid #ECECEC; border-radius: 4px; padding: 28px; box-shadow: 0 1px 2px rgba(0,0,0,0.03), 0 6px 16px rgba(0,0,0,0.05); display: flex; flex-direction: column; gap: 8px;">
+          <h3 style="margin: 0; font-size: 17px; font-weight: 700; letter-spacing: -0.01em;">It can do math</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.55; color: rgba(0,0,0,0.6); text-wrap: pretty;">The same formulas as Excel and Sheets: <span style="background: #F4F5F6; border-radius: 4px; padding: 1px 5px; font-variant-numeric: tabular-nums;">=42.80+12.50</span> <span style="background: #F4F5F6; border-radius: 4px; padding: 1px 5px; font-variant-numeric: tabular-nums;">=B2+B4</span> <span style="background: #F4F5F6; border-radius: 4px; padding: 1px 5px; font-variant-numeric: tabular-nums;">=AVERAGE(A1:A9)</span> — cell references and all, computed right where you write them.</p>
+        </div>
+
+        <div style="background: #FFFFFF; border: 1px solid #ECECEC; border-radius: 4px; padding: 28px; box-shadow: 0 1px 2px rgba(0,0,0,0.03), 0 6px 16px rgba(0,0,0,0.05); display: flex; flex-direction: column; gap: 8px;">
+          <h3 style="margin: 0; font-size: 17px; font-weight: 700; letter-spacing: -0.01em;">Keyboard-first</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.55; color: rgba(0,0,0,0.6); text-wrap: pretty;">Change text, fill a cell with color, set the font, merge and center — all of it straight from the keyboard.</p>
+        </div>
+
+        <div style="background: #FFFFFF; border: 1px solid #ECECEC; border-radius: 4px; padding: 28px; box-shadow: 0 1px 2px rgba(0,0,0,0.03), 0 6px 16px rgba(0,0,0,0.05); display: flex; flex-direction: column; gap: 8px;">
+          <h3 style="margin: 0; font-size: 17px; font-weight: 700; letter-spacing: -0.01em;">Notes &amp; folders</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.55; color: rgba(0,0,0,0.6); text-wrap: pretty;">Not everything is a dated entry. Keep lists, plans, and drafts in folders beside your daily pages.</p>
+        </div>
+
+        <div style="background: #FFFFFF; border: 1px solid #ECECEC; border-radius: 4px; padding: 28px; box-shadow: 0 1px 2px rgba(0,0,0,0.03), 0 6px 16px rgba(0,0,0,0.05); display: flex; flex-direction: column; gap: 8px;">
+          <h3 style="margin: 0; font-size: 17px; font-weight: 700; letter-spacing: -0.01em;">Your hands stay put</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.55; color: rgba(0,0,0,0.6); text-wrap: pretty;">No reaching for the mouse — not even the arrow keys. Everything happens from one resting position: you move fingers, not hands.</p>
+        </div>
+
+        <div style="background: #FFFFFF; border: 1px solid #ECECEC; border-radius: 4px; padding: 28px; box-shadow: 0 1px 2px rgba(0,0,0,0.03), 0 6px 16px rgba(0,0,0,0.05); display: flex; flex-direction: column; gap: 8px;">
+          <h3 style="margin: 0; font-size: 17px; font-weight: 700; letter-spacing: -0.01em;">Updates itself</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.55; color: rgba(0,0,0,0.6); text-wrap: pretty;">SEFRO updates quietly in the background. No account. No nagging.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Privacy band ===== -->
+  <section id="about" data-screen-label="About band" style="padding: 112px 32px;">
+    <div style="max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center;">
+      <h2 style="margin: 0; font-size: clamp(34px, 4.5vw, 48px); line-height: 1.08; letter-spacing: -0.03em; font-weight: 800; text-wrap: balance;">Built for people who work in numbers.</h2>
+      <p style="margin: 0; max-width: 600px; font-size: 17px; line-height: 1.6; color: rgba(0,0,0,0.6); font-weight: 500; text-wrap: pretty;">Civil engineers, architects, mechanical engineers, carpenters, mathematicians, economists, accountants — SEFRO is for anyone who keeps numbers close at hand. It’s a young project: by downloading and testing it, you’re helping shape a new way of scratch-padding.</p>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer data-screen-label="Footer" style="padding: 44px 32px 56px;">
+    <div style="max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+      <span style="font-size: 13px; font-weight: 500; color: rgba(0,0,0,0.45);">© 2026 SEFRO</span>
+      <div style="display: flex; align-items: center; gap: 24px;">
+        <a href="privacy.html" style="font-size: 13px; font-weight: 500; color: rgba(0,0,0,0.55); text-decoration: none;" style-hover="color: #000000;">Privacy policy</a>
+        <a href="terms.html" style="font-size: 13px; font-weight: 500; color: rgba(0,0,0,0.55); text-decoration: none;" style-hover="color: #000000;">Terms of use</a>
+        <a href="contact.html" style="font-size: 13px; font-weight: 500; color: rgba(0,0,0,0.55); text-decoration: none;" style-hover="color: #000000;">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;logoSize&quot;: {&quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 136, &quot;min&quot;: 80, &quot;max&quot;: 220, &quot;step&quot;: 4, &quot;unit&quot;: &quot;px&quot;, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Hero&quot;},
+  &quot;showWindowsSoon&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Hero&quot;},
+  &quot;navDownloadStyle&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;text&quot;, &quot;pill&quot;], &quot;default&quot;: &quot;pill&quot;, &quot;tsType&quot;: &quot;'text' | 'pill'&quot;, &quot;section&quot;: &quot;Top bar&quot;},
+  &quot;showGrid&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Background grid&quot;}
+}">
+class Component extends DCLogic {
+  componentDidMount() {
+    this._wave = 0;
+    this._onScroll = () => {
+      if (this._raf) return;
+      this._raf = requestAnimationFrame(() => {
+        this._raf = 0;
+        const y = window.scrollY || document.documentElement.scrollTop || 0;
+        const period = 1400;
+        const wave = Math.sin(((y % period) / period) * Math.PI);
+        this._wave = wave;
+        if (this._gridGrey) this._gridGrey.style.opacity = (wave * 0.95).toFixed(3);
+        if (this._gridBlue) this._gridBlue.style.opacity = (Math.pow(wave, 2.2) * 0.85).toFixed(3);
+      });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onScroll();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll);
+    if (this._raf) cancelAnimationFrame(this._raf);
+  }
+  renderVals() {
+    const navStyle = this.props.navDownloadStyle ?? "text";
+    return {
+      logoSize: this.props.logoSize ?? 136,
+      showWindowsSoon: this.props.showWindowsSoon ?? true,
+      showGrid: this.props.showGrid ?? true,
+      gridGreyRef: (el) => { this._gridGrey = el; },
+      gridBlueRef: (el) => { this._gridBlue = el; },
+      navText: navStyle !== "pill",
+      navPill: navStyle === "pill",
+    };
+  }
+}
+</script>
+</body>
+</html>
