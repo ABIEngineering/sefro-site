@@ -5,7 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sefro — looks like paper, counts like a spreadsheet</title>
 <meta name="description" content="A calm, keyboard-first scratch pad for Mac. Every solution starts in a cell. Free, macOS 12 or newer.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sefro">
+<meta property="og:title" content="Sefro — looks like paper, counts like a spreadsheet">
+<meta property="og:description" content="A calm, keyboard-first scratch pad for Mac. Every solution starts in a cell. Free, macOS 12 or newer.">
+<meta property="og:url" content="https://abiengineering.github.io/sefro-site/">
+<meta property="og:image" content="https://abiengineering.github.io/sefro-site/assets/shot-paper.png">
+<meta property="og:image:width" content="2720">
+<meta property="og:image:height" content="1320">
+<meta property="og:image:alt" content="Sefro — a day of notes: a heading, two things to do, and a small cost table that adds itself up">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="./assets/sefro-icon.png">
+<!-- W8: React comes from this site; support.js only fetches it from a CDN when these two are missing. -->
+<script src="./assets/react.production.min.js"></script>
+<script src="./assets/react-dom.production.min.js"></script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -66,7 +79,10 @@
         </div>
       </div>
       <div id="download" style="display: flex; flex-direction: column; align-items: center; gap: 14px; padding-top: 40px;">
-        <a id="download-btn" href="https://github.com/ABIEngineering/sefro-releases/releases/latest" style="display: inline-flex; align-items: center; white-space: nowrap; background: #27353D; color: #FFFFFF; text-decoration: none; font-size: 16px; font-weight: 600; letter-spacing: -0.01em; padding: 17px 36px; border-radius: 999px; box-shadow: 0 1px 2px rgba(39,53,61,0.2), 0 10px 24px rgba(39,53,61,0.16); transition: transform 0.15s ease, background 0.15s ease;" style-hover="background: #3B4C56; transform: translateY(-1px);"><span id="download-label">Download for Mac</span></a>
+        <!-- W9 (his pick A, 2026-09-21): until launch day the button offers no file.
+             At launch (L8): put back href="https://github.com/ABIEngineering/sefro-releases/releases/latest",
+             drop aria-disabled and "pointer-events: none;", label "Download for Mac", and set LAUNCHED = true below. -->
+        <a id="download-btn" aria-disabled="true" style="display: inline-flex; align-items: center; white-space: nowrap; background: #27353D; color: #FFFFFF; text-decoration: none; font-size: 16px; font-weight: 600; letter-spacing: -0.01em; padding: 17px 36px; border-radius: 999px; box-shadow: 0 1px 2px rgba(39,53,61,0.2), 0 10px 24px rgba(39,53,61,0.16); transition: transform 0.15s ease, background 0.15s ease; pointer-events: none;" style-hover="background: #3B4C56; transform: translateY(-1px);"><span id="download-label">Coming soon</span></a>
         <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
           <span id="download-fine" style="font-size: 13px; font-weight: 500; color: rgba(39,53,61,0.5);">Free · macOS 12+ · Apple silicon &amp; Intel</span>
           <sc-if value="{{ showWindowsSoon }}" hint-placeholder-val="{{ true }}">
@@ -209,7 +225,15 @@ class Component extends DCLogic {
   // ⚠️ Windows is NOT a download. D19 makes it a fast-follow with no date, so a
   // Windows visitor is told that plainly instead of being handed a Mac disk
   // image they cannot open.
+  //
+  // W9 (his pick A, 2026-09-21): 1.0.0 and 1.0.1 go up as ordinary releases
+  // before launch, and this button would offer them the moment they exist. So
+  // until launch day the button says "Coming soon", links nowhere, and nothing
+  // below runs. L8 flips LAUNCHED to true AND restores the button's markup
+  // (see the comment above it). src/siteDownload.test.ts fails on a half-flip.
   (function () {
+    var LAUNCHED = false;
+    if (!LAUNCHED) return;
     var RELEASES = 'https://github.com/ABIEngineering/sefro-releases/releases/latest';
     var btn = document.getElementById('download-btn');
     var label = document.getElementById('download-label');
